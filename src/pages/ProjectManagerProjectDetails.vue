@@ -94,16 +94,7 @@
                     </span>
                   </div>
 
-                  <div v-if="!isEditing">
-                    <p class="text-gray-600 text-lg">{{ project.description }}</p>
-                  </div>
-                  <div v-else>
-                    <input
-                      v-model="editForm.description"
-                      placeholder="Enter project name..."
-                      class="text-gray-600 text-lg bg-transparent border-b border-gray-300 focus:border-sky-400 focus:outline-none w-full pb-1 transition-all duration-200"
-                    />
-                  </div>
+                 
 
                   <p class="text-sm text-gray-500 mt-1">Project ID: #{{ project.id }}</p>
 
