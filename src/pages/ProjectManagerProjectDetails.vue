@@ -94,7 +94,15 @@
                     </span>
                   </div>
 
-                 
+                  <div v-if="!isEditing">
+                    <p class="text-gray-600 text-lg">{{ project.description }}</p>
+                  </div>
+                  <div v-else>
+                    <input
+                      v-model="editForm.description"
+                      placeholder="Enter project name..."
+                      class="text-gray-600 text-lg bg-transparent border-b border-gray-300 focus:border-sky-400 focus:outline-none w-full pb-1 transition-all duration-200"
+                    />
                   </div>
 
                   <p class="text-sm text-gray-500 mt-1">Project ID: #{{ project.id }}</p>
@@ -185,6 +193,20 @@
 
                 <div class="space-y-4">
                   <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <div v-if="!isEditing" class="p-3 bg-gray-50 rounded-lg border">
+                      <p class="text-gray-800">{{ project.description || 'No description provided' }}</p>
+                    </div>
+                    <div v-else>
+                      <textarea
+                        v-model="editForm.description"
+                        placeholder="Enter project description..."
+                        rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-200 resize-none"
+                      ></textarea>
+                    </div>
+                  </div>
+
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Created By</label>
                     <div class="flex items-center p-3 bg-gray-50 rounded-lg border">
