@@ -80,7 +80,7 @@
                 <div class="flex-1">
                   <div class="flex items-center mb-2">
                     <div v-if="!isEditing">
-                      <h1 class="text-3xl font-bold text-gray-800 mr-4">{{ project.projectTitle || project.name }}</h1>
+                      <h1 class="text-3xl font-bold text-gray-800 mr-4">{{ project.projectTitle }}</h1>
                     </div>
                     <div v-else class="flex-1 mr-4">
                       <input
@@ -99,7 +99,7 @@
                   </div>
                   <div v-else>
                     <input
-                      v-model="editForm.name"
+                      v-model="editForm.description"
                       placeholder="Enter project name..."
                       class="text-gray-600 text-lg bg-transparent border-b border-gray-300 focus:border-sky-400 focus:outline-none w-full pb-1 transition-all duration-200"
                     />
