@@ -161,12 +161,44 @@
                 </span>
               </span>
 
-              <span
-                class="inline-flex px-3 py-1 text-xs font-semibold rounded-full border shadow-sm"
-                :class="statusChipClass(currentTask.status)"
-              >
-                {{ statusLabel(currentTask.status) }}
-              </span>
+             <!-- Status: clickable chip -->
+<div class="relative" ref="statusMenuEl">
+  <button
+    type="button"
+    @click.stop="toggleStatusMenu"
+    class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full border shadow-sm hover:shadow transition"
+    :class="statusChipClass(currentTask.status)"
+    :title="'Change status'"
+  >
+    {{ statusLabel(currentTask.status) }}
+    <svg class="w-3 h-3 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.177l3.71-3.946a.75.75 0 111.08 1.04l-4.24 4.51a.75.75 0 01-1.08 0l-4.24-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown -->
+  <div
+    v-if="statusMenuOpen"
+    class="absolute right-0 mt-2 w-44 bg-white rounded-xl border border-gray-200 shadow-lg p-1 z-20"
+  >
+    <button
+      v-for="s in TASK_STATUSES"
+      :key="s"
+      type="button"
+      @click.stop="changeStatus(currentTask, s)"
+      class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm hover:bg-gray-50"
+      :class="currentTask.status === s ? 'font-semibold' : ''"
+    >
+      <span>{{ statusLabel(s) }}</span>
+      <span
+        class="inline-block h-2 w-2 rounded-full"
+        :class="statusChipClass(s).split(' ')[0].replace('bg-','bg-')"
+        aria-hidden="true"
+      ></span>
+    </button>
+  </div>
+</div>
+
             </div>
           </div>
 
@@ -240,6 +272,7 @@ import { ref, reactive, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { fetchProjectById, fetchTasksByProject, fetchProjectsPaged } from '../../api/Employee/project'
 import { postComment } from '../../api/Employee/Tasks'
+import { updateTaskStatus } from '../../api/Employee/Tasks'
 
 const route = useRoute()
 const router = useRouter()
@@ -253,6 +286,63 @@ const userEmail = ref('user@example.com')
 const currentTaskIndex = ref(0)
 const newComments = reactive({})
 const adding = reactive({})
+function statusLabel (s) {
+  const map = {
+    TO_DO: 'TO DO',
+    IN_PROGRESS: 'IN PROGRESS',
+    REVIEW: 'REVIEW',
+    COMPLETED: 'COMPLETED',
+  }
+  return map[s] || String(s).replace(/_/g, ' ').toUpperCase()
+}
+
+function statusChipClass (s) {
+  switch (s) {
+    case 'TO_DO':        return 'bg-slate-50 text-slate-700 border-slate-200'
+    case 'IN_PROGRESS':  return 'bg-blue-50 text-blue-700 border-blue-200'
+    case 'REVIEW':       return 'bg-amber-50 text-amber-700 border-amber-200'
+    case 'COMPLETED':    return 'bg-emerald-50 text-emerald-700 border-emerald-200'
+    default:             return 'bg-gray-50 text-gray-700 border-gray-200'
+  }
+}
+
+const statusMenuOpen = ref(false)
+const statusMenuEl = ref(null)
+
+// the 4 statuses you allow
+const TASK_STATUSES = ['TO_DO', 'IN_PROGRESS', 'REVIEW', 'COMPLETED']
+
+function toggleStatusMenu () {
+  statusMenuOpen.value = !statusMenuOpen.value
+}
+
+async function changeStatus (task, newStatus) {
+  if (!task || task.status === newStatus) {
+    statusMenuOpen.value = false
+    return
+  }
+  const prev = task.status
+  // optimistic UI
+  task.status = newStatus
+  statusMenuOpen.value = false
+  try {
+    await updateTaskStatus(task.id, newStatus)
+    // success: nothing else to do (you already updated UI)
+  } catch (e) {
+    // revert on failure
+    task.status = prev
+    error.value = e?.response?.data?.error || 'Failed to update status.'
+  }
+}
+
+// close on outside click
+function onDocClick (e) {
+  if (!statusMenuEl.value) return
+  if (!statusMenuEl.value.contains(e.target)) statusMenuOpen.value = false
+}
+onMounted(() => document.addEventListener('click', onDocClick))
+onUnmounted(() => document.removeEventListener('click', onDocClick))
+
 
 const currentTask = computed(() => tasks.value[currentTaskIndex.value] || {})
 const sortedComments = computed(() => {
