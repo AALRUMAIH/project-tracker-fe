@@ -82,7 +82,7 @@
       <div class="bg-white rounded-2xl shadow-lg p-6">
         <form @submit.prevent="submitProject" class="space-y-6">
           <!-- Project Name -->
-          <div>
+          <!-- <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Project Name</label>
             <input 
               v-model="form.name" 
@@ -90,7 +90,7 @@
               class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-200"
               required
             />
-          </div>
+          </div> -->
 
           <!-- Project Title -->
           <div>
@@ -239,7 +239,7 @@ const toYMD = (d) => {
   return local.toISOString().slice(0, 10)
 }
 const form = ref({
-  name: '',
+  name: 'project',
   projectTitle: '',
   description: '',
   startProject: '',

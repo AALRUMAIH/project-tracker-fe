@@ -65,11 +65,11 @@
           <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
-          <span class="text-sm text-gray-600 font-medium">{{ project.name }}</span>
+          <span class="text-sm text-gray-600 font-medium">{{ project.projectTitle }}</span>
         </div>
 
         <div class="flex items-center justify-between mb-2">
-          <h1 class="text-3xl font-bold text-gray-800">{{ project.name }}</h1>
+          <h1 class="text-3xl font-bold text-gray-800">{{ project.projectTitle }}</h1>
           <span class="inline-flex px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 border border-blue-200">
             {{ project.status }}
           </span>

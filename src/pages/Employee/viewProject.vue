@@ -116,7 +116,7 @@
               <router-link :to="`/projects/${proj.id}`" class="block">
                 <div class="flex items-center justify-between">
                   <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ proj.name }}</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ proj.projectTitle }}</h3>
                     <p class="text-gray-600">Click to view project details and tasks</p>
                   </div>
                   <div class="flex items-center space-x-2">
