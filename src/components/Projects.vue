@@ -65,7 +65,7 @@
 
           <div class="mb-4">
             <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-              {{ project.name }}
+              {{ project.projectTitle }}
             </h3>
             <p class="text-gray-600 text-sm">
               Project ID: #{{ project.id }}
