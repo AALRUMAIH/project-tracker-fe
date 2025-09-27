@@ -268,9 +268,10 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { fetchProjectById, fetchTasksByProject, fetchProjectsPaged } from '../../api/Employee/project'
+// If your API file is actually src/api/tasks.js, use: import { updateTaskStatus, postComment } from '@/api/tasks'
 import { postComment } from '../../api/Employee/Tasks'
 import { updateTaskStatus } from '../../api/Employee/Tasks'
 
@@ -286,6 +287,8 @@ const userEmail = ref('user@example.com')
 const currentTaskIndex = ref(0)
 const newComments = reactive({})
 const adding = reactive({})
+
+/** ---------- STATUS (match your backend enum) ---------- */
 function statusLabel (s) {
   const map = {
     TO_DO: 'TO DO',
@@ -308,8 +311,6 @@ function statusChipClass (s) {
 
 const statusMenuOpen = ref(false)
 const statusMenuEl = ref(null)
-
-// the 4 statuses you allow
 const TASK_STATUSES = ['TO_DO', 'IN_PROGRESS', 'REVIEW', 'COMPLETED']
 
 function toggleStatusMenu () {
@@ -327,9 +328,7 @@ async function changeStatus (task, newStatus) {
   statusMenuOpen.value = false
   try {
     await updateTaskStatus(task.id, newStatus)
-    // success: nothing else to do (you already updated UI)
   } catch (e) {
-    // revert on failure
     task.status = prev
     error.value = e?.response?.data?.error || 'Failed to update status.'
   }
@@ -343,7 +342,7 @@ function onDocClick (e) {
 onMounted(() => document.addEventListener('click', onDocClick))
 onUnmounted(() => document.removeEventListener('click', onDocClick))
 
-
+/** ---------- TASK/PROJECT/COMMENTS ---------- */
 const currentTask = computed(() => tasks.value[currentTaskIndex.value] || {})
 const sortedComments = computed(() => {
   if (!currentTask.value?.comments) return []
@@ -373,7 +372,6 @@ function getUserEmailFromToken () {
 async function load () {
   try {
     userEmail.value = getUserEmailFromToken()
-    // load project via paged endpoint (as you do)
     const projRes = await fetchProjectsPaged({ page: 0, size: 100 })
     const d = projRes.data
     project.value = d?.content?.find(p => Number(p.id) === projectId) || {}
@@ -428,31 +426,8 @@ function assignedToDisplay (task) {
   if (!task) return 'Unassigned'
   return task.assignedToEmail || (task.assignedToId ? `User #${task.assignedToId}` : 'Unassigned')
 }
-function statusLabel (s) {
-  if (!s) return '—'
-  const map = {
-    NEW: 'NEW',
-    IN_PROGRESS: 'IN PROGRESS',
-    REVIEW: 'REVIEW',
-    COMPLETED: 'COMPLETED',
-    ON_HOLD: 'ON HOLD',
-    CANCELLED: 'CANCELLED'
-  }
-  return map[s] || String(s).replace(/_/g, ' ').toUpperCase()
-}
-function statusChipClass (s) {
-  switch (s) {
-    case 'NEW':         return 'bg-sky-50 text-sky-700 border-sky-200'
-    case 'IN_PROGRESS': return 'bg-blue-50 text-blue-700 border-blue-200'
-    case 'REVIEW':      return 'bg-orange-50 text-orange-700 border-orange-200'
-    case 'COMPLETED':   return 'bg-green-50 text-green-700 border-green-200'
-    case 'ON_HOLD':     return 'bg-yellow-50 text-yellow-700 border-yellow-200'
-    case 'CANCELLED':   return 'bg-red-50 text-red-700 border-red-200'
-    default:            return 'bg-gray-50 text-gray-700 border-gray-200'
-  }
-}
 
-/* pretty timestamp for comments, like YYYY-MM-DD 9:01 am */
+/* pretty timestamp for comments */
 function formatDateStamp (iso) {
   if (!iso) return ''
   const d = new Date(iso)
