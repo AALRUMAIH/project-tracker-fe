@@ -163,8 +163,8 @@
 
                   <button
   @click="openMembers"
-  class="px-4 bg-gradient-to-r from-indigo-400 to-blue-500 text-white font-medium rounded-lg hover:from-indigo-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
->
+  class="px-4 py-2 bg-gradient-to-r from-indigo-400 to-blue-500 text-white rounded-lg font-medium rounded-lg  hover:from-indigo-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+  >
   Edit Assign
 </button>
                 </div>
