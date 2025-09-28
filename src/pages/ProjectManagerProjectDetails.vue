@@ -86,10 +86,10 @@
                       <input
                         v-model="editForm.projectTitle"
                         placeholder="Enter project title..."
-                        class="text-3xl font-bold text-gray-800 bg-transparent border-b-2 border-gray-300 focus:border-sky-400 focus:outline-none w-full pb-1 transition-all duration-200"
+                        class="text-3xl font-bold text-gray-800 bg-transparent border-b-2 border-gray-300 focus:border-sky-400 focus:outline-none  pb-1 transition-all duration-200"
                       />
                     </div>
-                    <span class="inline-flex px-3 py-1 text-sm font-medium rounded-full" :class="getStatusClass(project.status)">
+                    <span class="inline-flex px-3 py-1 text-sm font-medium rounded-full mr-6" :class="getStatusClass(project.status)">
                       {{ project.status || 'Active' }}
                     </span>
                   </div>
@@ -127,12 +127,13 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="flex gap-2 items-end space-y-2">
+                <div class="flex gap-2 items-end ">
                   <div class="flex space-x-3">
+                    
                     <button
                       v-if="!isEditing"
                       @click="editProject"
-                      class="px-4 py-2 bg-gradient-to-r from-blue-400 to-sky-500 text-white font-medium rounded-lg hover:from-blue-500 hover:to-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                      class="px-4 py-1 bg-gradient-to-r from-blue-400 to-sky-500 text-white font-medium rounded-lg hover:from-blue-500 hover:to-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
                       Edit Project
                     </button>
@@ -140,33 +141,35 @@
                       <button
                         @click="saveProject"
                         :disabled="saving"
-                        class="px-4 py-2 bg-green-500 text-white font-medium rounded-lg hover:from-emerald-500 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        class="px-4 py-1 bg-green-500 text-white font-medium rounded-lg hover:from-emerald-500 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         {{ saving ? 'Saving...' : 'Save' }}
                       </button>
                       <button
                         @click="cancelEdit"
                         :disabled="saving"
-                        class="px-4 py-2 bg-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        class="px-4 py-1 bg-gray-500 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         Cancel
                       </button>
                     </template>
                   </div>
 
+              
+
                   <button
+  @click="openMembers"
+  class="px-4 py-1 bg-indigo-400 text-white rounded-lg font-medium rounded-lg  hover:from-indigo-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+  >
+  Edit Assign
+</button>
+    <button
                     @click="openAddTaskModal"
-                    class="px-4 py-2 bg-gradient-to-r bg-green-600 rounded-lg border border-green-200 text-white font-medium rounded-lg  hover:green-800 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    class="px-4 py-1 bg-green-600/90 rounded-lg border border-green-200 text-white font-medium rounded-lg  hover:green-800 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     + Add Task
                   </button>
 
-                  <button
-  @click="openMembers"
-  class="px-4 py-2 bg-gradient-to-r from-indigo-400 to-blue-500 text-white rounded-lg font-medium rounded-lg  hover:from-indigo-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-  >
-  Edit Assign
-</button>
                 </div>
               </div>
             </div>
