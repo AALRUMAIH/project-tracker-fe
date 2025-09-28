@@ -127,7 +127,7 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="flex flex-col items-end space-y-2">
+                <div class="flex gap-2 items-end space-y-2">
                   <div class="flex space-x-3">
                     <button
                       v-if="!isEditing"
@@ -140,14 +140,14 @@
                       <button
                         @click="saveProject"
                         :disabled="saving"
-                        class="px-4 py-2 bg-gradient-to-r from-emerald-400 to-green-500 text-white font-medium rounded-lg hover:from-emerald-500 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        class="px-4 py-2  from-emerald-400 to-green-500 text-white font-medium rounded-lg hover:from-emerald-500 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
-                        {{ saving ? 'Saving...' : 'Save Changes' }}
+                        {{ saving ? 'Saving...' : 'Save' }}
                       </button>
                       <button
                         @click="cancelEdit"
                         :disabled="saving"
-                        class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        class="px-4 py-2 from-gray-400 to-gray-600 text-white font-medium rounded-lg hover:from-gray-500 hover:to-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         Cancel
                       </button>
@@ -165,7 +165,7 @@
   @click="openMembers"
   class="px-4 py-2 bg-gradient-to-r from-indigo-400 to-blue-500 text-white font-medium rounded-lg hover:from-indigo-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
 >
-  Edit Assign Members
+  Edit Assign
 </button>
                 </div>
               </div>
