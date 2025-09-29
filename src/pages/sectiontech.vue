@@ -34,9 +34,9 @@
     </div>
    
   </div>
-  <div class="flex justify-center items-center sm:p-10">
+  <div class="flex justify-center items-center sm:p-10 ">
 
-      <div class=" flex border-2 rounded-2xl border-gray-200 w-fit h-fit p-8 gap-8">
+      <div class=" flex border-2 rounded-2xl border-gray-200 w-fit h-fit p-6  sm:gap-8 ">
           <div class="flex flex-col justify-center items-center border-r border-gray-300 pr-6">
               <h1 class="text-blue-500 text-2xl font-bold ">7+</h1>
               <p class="text-gray-400 ">Technologies</p>
