@@ -103,8 +103,15 @@
         <!-- Copy -->
         <div class="relative z-10 max-w-3xl flex flex-col gap-3 sm:gap-4 text-left">
           <div class="text-[#0a66c2] font-bold tracking-wider text-xs sm:text-sm">Tracker</div>
-          <h1 class="m-0 p-0 text-4xl sm:text-5xl leading-tight text-[#071a2a] font-black tracking-tight">
+          <h1 class="m-0 sm:p-0 p-4 text-4xl sm:text-5xl leading-tight text-[#071a2a] font-black tracking-tight "
+
+          >
+            <span 
+    class="inline-block overflow-hidden"
+    style="min-height: 4rem; min-width: 20ch; text-align:left;"
+  >
             <span ref="typeEl" aria-live="polite" />
+            </span>
             <span class="sr-only">typewriter headline</span>
           </h1>
           <p class="m-0 p-0 text-slate-500 max-w-[780px] text-sm sm:text-base">
@@ -132,44 +139,25 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 w-full">
           <div class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
-            <svg width="64" height="64" viewBox="0 0 64 64" class="mx-auto" aria-hidden>
-              <circle cx="32" cy="32" r="29" stroke="#0a66c2" stroke-width="1.6" fill="none"/>
-              <rect x="18" y="20" width="6" height="24" rx="1.5" fill="#0a66c2" opacity="0.95"/>
-              <rect x="30" y="16" width="6" height="28" rx="1.5" fill="#60a5fa" opacity="0.95"/>
-              <rect x="42" y="24" width="6" height="20" rx="1.5" fill="#7dd3fc" opacity="0.95"/>
-            </svg>
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Project &amp; Task Management</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Create projects, assign members and track progress with clarity.</p>
           </div>
 
           <div class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
-            <svg width="64" height="64" viewBox="0 0 64 64" class="mx-auto" aria-hidden>
-              <circle cx="32" cy="32" r="29" stroke="#0a66c2" stroke-width="1.6" fill="none"/>
-              <path d="M12 36 A20 20 0 0 1 52 36" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" fill="none"/>
-              <path d="M32 32 L44 24" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" />
-              <circle cx="32" cy="32" r="2.2" fill="#0a66c2"/>
-            </svg>
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Smart Dashboard</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Overview of projects and completion metrics for fast decisions.</p>
           </div>
 
           <div class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
-            <svg width="64" height="64" viewBox="0 0 64 64" class="mx-auto" aria-hidden>
-              <circle cx="32" cy="32" r="29" stroke="#0a66c2" stroke-width="1.6" fill="none"/>
-              <text x="32" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0a66c2"
-                    font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial">AI</text>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">AI-Powered Insights</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Auto summaries, progress % and deadline predictions for admins.</p>
           </div>
 
           <div class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
-            <svg width="64" height="64" viewBox="0 0 64 64" class="mx-auto" aria-hidden>
-              <circle cx="32" cy="32" r="29" stroke="#0a66c2" stroke-width="1.6" fill="none"/>
-              <path d="M44 20v6h-6" stroke="#0a66c2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <path d="M20 44v-6h6" stroke="#0a66c2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <path d="M46 18 A18 18 0 0 0 18 46" stroke="#0a66c2" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-            </svg>
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Seamless Integration</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Real-time sync between web and desktop keeps users up-to-date.</p>
           </div>
@@ -177,7 +165,7 @@
       </section>
 
       <!-- Tour -->
-      <section id="section3" class="rounded-xl bg-white shadow-[0_8px_30px_rgba(16,42,67,0.06)] p-5 ">
+      <section id="section3" class="rounded-xl bg-white shadow-[0_8px_30px_rgba(16,42,67,0.06)] p-1 ">
         <div class="flex gap-6 justify-center mb-5  ">
           <button
             @click="activeTab = 'desktop'"
@@ -206,9 +194,11 @@
           </div>
         </transition>
       </section>
-
+        <section>
+        <sectiontech/>
+        </section>
       <!-- Footer -->
-      <TeamFooter :members="team" class="mt-0" />
+      <TeamFooter :members="team" class="mt-0 text-amber-950 " />
     </main>
   </div>
 </template>
@@ -223,6 +213,7 @@ const sec1  = new URL('../assets/section1.png', import.meta.url).href
 import DesktopContent from '../pages/DesktopContent.vue'
 import WebContent     from '../pages/WebContent.vue'
 import TeamFooter     from '../components/Footer.vue'
+import sectiontech from './sectiontech.vue'
 
 /* --- Nav state --- */
 const navRef = ref(null)
@@ -296,18 +287,18 @@ const activeTab = ref('desktop')
 
 /* --- Team (footer) --- */
 const team = [
-  { name: 'Abdulmajeed Alromaih', role: 'Full-Stack Engineer', linkedin: 'https://www.linkedin.com/in/abdulmajeed-alromaih-054891297/', github: 'https://github.com/your-handle' },
-  { name: 'Fahad Alqahtani', role: 'Full-Stack Engineer', linkedin: 'https://www.linkedin.com/in/fahd-alghtani246/', github: 'https://github.com/teammate2' },
-  { name: 'Abdullah Alzubaidi', role: 'Full-Stack Engineer',  linkedin: 'https://www.linkedin.com/in/abdullah-alzubaidii?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', github: 'https://github.com/teammate3' },
-  { name: 'Ali Almutiri', role: 'UI/UX Designer',    linkedin: 'https://www.linkedin.com/in/teammate4', github: 'https://github.com/teammate4' }
+  { name: 'Abdulmajeed Alromaih', role: 'Full-Stack Engineer', linkedin: 'https://www.linkedin.com/in/abdulmajeed-alromaih-054891297/', github: 'https://github.com/AALRUMAIH' },
+  { name: 'Fahad Alqahtani', role: 'Full-Stack Engineer', linkedin: 'https://www.linkedin.com/in/fahd-alghtani246/', github: 'https://github.com/fahadalghtni' },
+  { name: 'Abdullah Alzubaidi', role: 'Full-Stack Engineer',  linkedin: 'https://www.linkedin.com/in/abdullah-alzubaidii?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', github: 'https://github.com/AbdullahAli1999' },
+  { name: 'Ali Almutiri', role: 'Full-Stack Engineer',    linkedin: 'https://www.linkedin.com/in/ali-almutairi-971590277/', github: 'https://github.com/Aliz1010' }
 ]
 
 /* --- Typewriter (loop + cleanup) --- */
 const typeEl = ref(null)
 const phrases = [
   'Our project',
-  'Manage & track projects',
-  'Stay organized and productive'
+  'Stay organized ',
+  'Manage projects'
 ]
 let twIdx = 0, charIdx = 0, typing, pauseTm
 
@@ -339,13 +330,7 @@ function startTyping() {
 
 onMounted(() => { startTyping() })
 </script>
-
 <style scoped>
-/* Section content transitions for tab switch */
-.fade-slide-enter-active,
-.fade-slide-leave-active { transition: all 0.35s ease; }
-.fade-slide-enter-from { opacity: 0; transform: translateY(10px); }
-.fade-slide-enter-to   { opacity: 1; transform: translateY(0); }
-.fade-slide-leave-from { opacity: 1; transform: translateY(0); }
-.fade-slide-leave-to   { opacity: 0; transform: translateY(-10px); }
+
 </style>
+

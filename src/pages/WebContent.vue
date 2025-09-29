@@ -1,15 +1,15 @@
 <template>
-  <div class="flex flex-col p-10">
+  <div class="flex flex-col p-0 sm:p-10  ">
     <div class="w-full max-w-5xl mx-auto 
  ">
       <div class="flex justify-between w-full mb-4">
-        <button   class="sketch-btn red"
+        <button   class="sketch-btn red text-sm sm:text-2xl"
     @click="activeRole = 'admin'; showGallery('admin')"
     :style="activeRole === 'admin' ? activeStyle : {}"
   >Admin</button>
   
         <button
-    class="sketch-btn blue"
+    class="sketch-btn blue text-sm sm:text-2xl"
     @click="activeRole = 'employee'; showGallery('employee')"
     :style="activeRole === 'employee' ? activeStyle : {}"
   >
@@ -17,7 +17,7 @@
   </button>
 
   <button
-    class="sketch-btn green"
+    class="sketch-btn green text-sm sm:text-2xl"
     @click="activeRole = 'pm'; showGallery('pm')"
     :style="activeRole === 'pm' ? activeStyle : {}"
   >
@@ -25,16 +25,19 @@
   </button>
       </div>
 
-      <div class="flex justify-center items-center w-full">
+      <div class="flex justify-center items-center w-full  ">
         <div v-if="images.length" >
-          <img :src="images[current]" class="gallery-img w-full rounded-lg" />
-          <div class=" mt-3 flex justify-center">
+<img 
+  :src="images[current]" 
+  class="w-full aspect-[16/9] object-cover rounded-lg"
+/>
+          <div class=" mt-3 flex justify-center gap-2">
             <button @click="prev">
-            <i class="pi pi-chevron-left" style="font-size: 1.5rem"> </i>
+            <i class="pi pi-chevron-left text-base sm:text-3xl"> </i>
 
             </button>
             <button @click="next">
-            <i class="pi pi-chevron-right" style="font-size: 1.5rem"> </i>
+            <i class="pi pi-chevron-right text-base sm:text-3xl " > </i>
 
             </button>
           </div>
@@ -113,13 +116,9 @@ export default {
   border-radius:15px ;
 }
 
-.gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 50%;
-
+#gallery-img{
+  width: 100%;
+  height: 100%;
 }
 
 

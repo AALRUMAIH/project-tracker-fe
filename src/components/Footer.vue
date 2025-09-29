@@ -25,7 +25,7 @@
           <!-- Top row -->
           <div class="flex items-center  gap-2 sm:gap-3">
             <div
-              class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl grid place-items-center text-sm font-bold text-white
+              class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl grid place-items-center text-sm  font-bold text-white
                      bg-gradient-to-br from-blue-500 to-cyan-500 overflow-hidden"
               :title="m.name"
             >
@@ -39,7 +39,7 @@
             </div>
 
             <div class="min-w-0">
-              <h4 class="font-semibold text-slate-900 truncate text-sm sm:text-base">{{ m.name }}</h4>
+              <h4 class="font-semibold text-slate-900  truncate text-xs sm:text-base">{{ m.name }}</h4>
               <p class="text-slate-500 text-[11px] sm:text-xs truncate">{{ m.role }}</p>
             </div>
           </div>
