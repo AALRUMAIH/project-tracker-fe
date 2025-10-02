@@ -150,9 +150,9 @@
           </div>
         </div>
 
-        <!-- Tasks: To do + In Progress + Review + Completed -->
+        <!-- Tasks -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <!-- To Do (fixed v-for source) -->
+          <!-- To Do -->
           <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
             <div class="flex items-center mb-4">
               <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mr-3 border border-gray-200">
@@ -261,6 +261,42 @@
           </div>
         </div>
 
+       <!-- === AI Health Report (Bottom of Project Details) === -->
+<div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 mt-6">
+  <div class="flex items-center mb-4">
+    <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mr-3 border border-indigo-200">
+      <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-800">AI Project Health</h3>
+
+    <button
+      @click="runAi"
+      class="ml-auto px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition shadow"
+      title="Generate AI Report"
+    >
+      Generate AI
+    </button>
+  </div>
+
+  <!-- IMPORTANT: pass the feature counts -->
+  <AiHealthReport
+    ref="aiRef"
+    :project-id="Number(route.params.id)"
+    :project-name="aiProjectName"
+    :planned-end="aiPlannedEnd"
+    :features-completed="(project?.tasksCompleted?.length || 0)"
+    :features-total="(project?.tasksToDo?.length || 0)
+                    + (project?.tasksInProgress?.length || 0)
+                    + (project?.tasksReview?.length || 0)
+                    + (project?.tasksCompleted?.length || 0)"
+  />
+</div>
+<!-- === /AI Health Report === -->
+
+        <!-- === /AI Health Report === -->
+
         <div class="text-center mt-8 pb-4">
           <p class="text-xs text-blue-400 italic">"Great projects are built one task at a time! 📋"</p>
         </div>
@@ -273,6 +309,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { adminService } from '../../api/adminService'
+import AiHealthReport from '@/components/AiHealthReport.vue'
 
 const route = useRoute()
 const project = ref(null)
@@ -297,15 +334,13 @@ const hasMembers = computed(() => Array.isArray(project.value?.projectMembers) &
 const initials = (nameOrEmail) => {
   if (!nameOrEmail) return '—'
   const s = String(nameOrEmail).trim()
-  // If looks like an email, take local part's first 2 letters
   if (s.includes('@')) {
     const local = s.split('@')[0]
     return local.slice(0, 2).toUpperCase()
   }
-  // Otherwise use first letters of up to two words
   const parts = s.split(/\s+/).filter(Boolean)
   const first = parts[0]?.[0] || ''
-  const second = parts[1]?.[0] || ''
+  const  second = parts[1]?.[0] || ''
   return (first + second).toUpperCase() || s.slice(0, 2).toUpperCase()
 }
 
@@ -314,7 +349,6 @@ const copy = async (text) => {
   try {
     await navigator.clipboard.writeText(text)
   } catch {
-    // Fallback
     const ta = document.createElement('textarea')
     ta.value = text
     ta.style.position = 'fixed'
@@ -341,4 +375,30 @@ const statusBadgeClass = computed(() => {
     'bg-gray-100 text-gray-800': s === 'TO_DO'
   }
 })
+
+/** AI props (robust fallbacks) */
+const aiProjectName = computed(() =>
+  project.value?.projectName
+  || project.value?.name
+  || project.value?.projectTitle
+  || `Project #${route.params.id}`
+)
+const aiPlannedEnd = computed(() => {
+  const raw =
+    project.value?.plannedEnd
+    || project.value?.endProject
+    || project.value?.endDate
+    || ''
+  if (!raw) return new Date().toISOString().slice(0, 10)
+  try {
+    const d = new Date(raw)
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10)
+  } catch {
+    return new Date().toISOString().slice(0, 10)
+  }
+})
+
+/** Manual AI trigger: call child's exposed method */
+const aiRef = ref(null)
+const runAi = () => aiRef.value?.generate()
 </script>
