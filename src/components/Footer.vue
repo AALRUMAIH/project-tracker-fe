@@ -25,7 +25,7 @@
           <!-- Top row -->
           <div class="flex items-center  gap-2 sm:gap-3">
             <div
-              class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl grid place-items-center text-sm  font-bold text-white
+              class=" w-10 h-10 sm:w-12 sm:h-12 rounded-xl grid place-items-center text-sm  font-bold text-white
                      bg-gradient-to-br from-blue-500 to-cyan-500 overflow-hidden"
               :title="m.name"
             >

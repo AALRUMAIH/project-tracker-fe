@@ -81,6 +81,9 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-5 pt-7 pb-0 flex flex-col gap-5">
       <!-- Hero -->
       <section
+       data-aos="fade"
+  data-aos-duration="1200"
+  data-aos-easing="ease-in-out"
         id="section1"
         class="relative min-h-[480px] sm:min-h-[520px] rounded-xl bg-white shadow-[0_18px_50px_rgba(9,30,63,0.06)]
                overflow-hidden grid md:grid-cols-2 place-items-center px-5"
@@ -122,6 +125,8 @@
 
       <!-- Features -->
       <section
+      data-aos="fade-up"
+       data-aos-duration="800"
         id="section2"
         class="relative rounded-xl bg-white shadow-[0_18px_50px_rgba(9,30,63,0.06)]
                overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 p-5 sm:p-12"
@@ -130,33 +135,33 @@
           <path d="M10,300 C280,60 920,60 1190,300" fill="none" stroke="#0a5b72" stroke-width="2" stroke-linecap="round" />
         </svg>
 
-        <div class="basis-full md:basis-[48%] space-y-2 text-center md:text-left">
-          <h2 class="m-0 text-xl sm:text-2xl text-[#071a2a] font-extrabold">✨ Key Features</h2>
-          <p class="m-0 text-slate-500 text-[14px] sm:text-[15px] leading-relaxed">
+        <div  data-aos="fade-up" class="basis-full md:basis-[48%] space-y-2 text-center md:text-left">
+          <h2 data-aos="zoom-in" class="m-0 text-xl sm:text-2xl text-[#071a2a] font-extrabold">✨ Key Features</h2>
+          <p data-aos="fade-left" class="m-0 text-slate-500 text-[14px] sm:text-[15px] leading-relaxed">
             Core capabilities designed to make project management smarter, faster, and more reliable — web & desktop in perfect sync.
           </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 w-full">
-          <div class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
+          <div data-aos="zoom-in" data-aos-delay="200" class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Project &amp; Task Management</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Create projects, assign members and track progress with clarity.</p>
           </div>
 
-          <div class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
+          <div data-aos="zoom-in" data-aos-delay="400" class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Smart Dashboard</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Overview of projects and completion metrics for fast decisions.</p>
           </div>
 
-          <div class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
+          <div data-aos="zoom-in" data-aos-delay="600" class="rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3 bg-blue-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">AI-Powered Insights</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Auto summaries, progress % and deadline predictions for admins.</p>
           </div>
 
-          <div class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
+          <div data-aos="zoom-in" data-aos-delay="800" class="bg-gradient-to-b from-[#fbfdff] to-[#f7fbff] rounded-xl p-4 text-center shadow-[0_8px_30px_rgba(9,30,63,0.04)] space-y-3">
            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-8 w-8 text-primary" data-lov-id="src/pages/Index.tsx:135:20" data-lov-name="feature.icon" data-component-path="src/pages/Index.tsx" data-component-line="135" data-component-file="Index.tsx" data-component-name="feature.icon" data-component-content="%7B%22className%22%3A%22h-8%20w-8%20text-primary%22%7D"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             <h3 class="m-0 text-[15px] text-[#052233] font-extrabold">Seamless Integration</h3>
             <p class="m-0 text-slate-600 text-[13px] leading-snug">Real-time sync between web and desktop keeps users up-to-date.</p>

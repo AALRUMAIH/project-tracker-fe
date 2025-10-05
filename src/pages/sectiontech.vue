@@ -4,11 +4,14 @@
         <p class="text-gray mt-2">Our project leverages cutting-edge technologies to deliver exceptional performance, scalability, and user experience across web and desktop platforms.</p>
    </div>
   <div class="flex flex-wrap justify-center items-stretch gap-6 w-full p-5">
-    <div
-      v-for="section in sections"
-      :key="section.title"
-      class="flex flex-col hover:shadow-2xl rounded-2xl p-6 sm:w-[350px] w-[400px] bg-white sm:flex-1"
-    >
+   <div
+  v-for="(section, index) in sections"
+  :key="section.title"
+  class="flex flex-col hover:shadow-2xl rounded-2xl p-6 sm:w-[350px] w-[400px] bg-white sm:flex-1"
+  :data-aos="index === 0 ? 'fade-right' : index === 1 ? 'fade-left' : 'fade-right'"
+  :data-aos-delay="index * 200"
+  data-aos-duration="1000"
+>
       <div class="text-center mb-6">
         <h1 class="text-lg font-bold hover:text-blue-500">{{ section.title }}</h1>
         <p class="text-sm text-gray-600">{{ section.subtitle }}</p>
@@ -34,7 +37,7 @@
     </div>
    
   </div>
-  <div class="flex justify-center items-center sm:p-10 ">
+  <div class="flex justify-center items-center sm:p-10  "  data-aos="zoom-in" data-aos-delay="600">
 
       <div class=" flex border-2 rounded-2xl border-gray-200 w-fit h-fit p-6  sm:gap-8 ">
           <div class="flex flex-col justify-center items-center border-r border-gray-300 pr-6">
