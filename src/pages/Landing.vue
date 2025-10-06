@@ -117,7 +117,7 @@
             </span>
             <span class="sr-only">typewriter headline</span>
           </h1>
-          <p class="m-0 p-0 text-slate-500 max-w-[780px] text-sm sm:text-base">
+          <p class="m-0 p-0 text-slate-500 sm:max-w-[780px] w-[300px] text-sm sm:text-base break-words whitespace-pre-line">
             Our project is a Web and Desktop application designed to manage and track projects, helping teams stay organized and productive.
           </p>
         </div>
